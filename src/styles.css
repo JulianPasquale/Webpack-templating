@@ -1,0 +1,24 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  padding: .375rem .75rem;
+  margin-bottom: 20px;
+}
+
+#mapid {
+  height: 400px;
+  width: 100%;
+}
+
+.form-title {
+  text-align: center;
+}
+
+#lat, #lng {
+  display: none;
+}
