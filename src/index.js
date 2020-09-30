@@ -1,9 +1,8 @@
-import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Custom.
 import './styles.css'
-import Map from '../../Map.js'
+// import Map from './components/Map.js'
 
 const submitHandler = (event, marker) => {
   if (!marker) {
@@ -18,11 +17,11 @@ const submitHandler = (event, marker) => {
 }
 
 window.onload = () => {
-  const map = Map({
-    selector: 'mapid',
-    addSearch: true
-  })
-  const form = document.getElementById('create-user-form')
+  // const map = Map({
+  //   selector: 'mapid',
+  //   addSearch: true
+  // })
+  // const form = document.getElementById('js-creation-form')
 
-  form.onsubmit = (event) => submitHandler(event, map.marker)
+  // form.onsubmit = (event) => submitHandler(event, map.marker)
 }

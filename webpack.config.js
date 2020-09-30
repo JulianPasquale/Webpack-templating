@@ -10,11 +10,17 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
-      title: 'Output Management',
-    }),
+      title: 'Ejemplo',
+      siteTitle: 'Creación de Centro de ayuda social',
+      template: path.resolve(__dirname, 'src', 'index.html')
+    })
   ],
   module: {
     rules: [

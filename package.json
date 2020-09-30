@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack --watch"
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "",
@@ -17,13 +18,16 @@
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
     "esri-leaflet": "^2.5.0",
+    "esri-leaflet-geocoder": "^2.3.3",
     "jquery": "^3.5.1",
     "leaflet": "^1.7.1",
+    "leaflet-geosearch": "^3.0.6",
     "popper.js": "^1.16.1"
   }
 }

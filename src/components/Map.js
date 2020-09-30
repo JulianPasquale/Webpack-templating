@@ -1,4 +1,6 @@
 import L from 'leaflet'
+import * as esri from 'esri-leaflet'
+import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch'
 
 // Constantes.
 const initialLat = -34.9187
@@ -6,35 +8,27 @@ const initialLng = -57.956
 const mapLayerUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
 const Map = ({selector, onClick, addSearch}) => {
-  // Private variables.
-  let map = initialize()
-
-  // Public variable.
-  let marker
-
   // Private functions.
   const initialize = () => {
-    map = L.map(selector).setView([initialLat, initialLng], 13)
+    let map = L.map(selector).setView([initialLat, initialLng], 13)
     L.tileLayer(mapLayerUrl).addTo(map)
 
-    if (addSearch) {
-      addSearchControl()
-    }
+    // if (addSearch) {
+    //   addSearchControl(map)
+    // }
 
     map.onclick = onClick ? onClick : ({latlng}) => { addMarker(latlng) }
   
     return map
   }
 
-  const addSearchControl = () => {
+  const addSearchControl = (map) => {
     L.control.scale().addTo(map)
-    let searchControl = new L.esri.Controls.Geosearch().addTo(map)
+    const provider = new OpenStreetMapProvider();
+
+    new GeoSearchControl({provider}).addTo(map);
   
-    let results = new L.LayerGroup().addTo(map)
-  
-    searchControl.on('results', (data) => {
-      results.clearLayers()
-  
+    map.on('geosearch/showlocation', (data) => {
       if (data.results.length > 0) {
         addMarker(data.results[0].latlng)
       }
@@ -47,6 +41,12 @@ const Map = ({selector, onClick, addSearch}) => {
   
     marker = L.marker([lat, lng]).addTo(map)
   }
+
+  // Private variables.
+  let map = initialize()
+
+  // Public variable.
+  let marker
 
   return {
     marker: marker,
