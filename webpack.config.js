@@ -17,8 +17,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
-      title: 'Ejemplo',
-      siteTitle: 'Creación de Centro de ayuda social',
+      title: 'Example',
+      siteTitle: 'Creation Form',
       template: path.resolve(__dirname, 'src', 'index.html')
     })
   ],
