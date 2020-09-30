@@ -25,12 +25,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           'style-loader',
           'css-loader',
         ],
       },
+      {
+        test: /\/src\/partials\/.*html/i,
+        use: { loader: 'html-loader' }
+      }
     ],
   }
 };
